@@ -17,7 +17,9 @@ class YAWB(QMainWindow):
 
         self.urlbar = QTextEdit()
         self.urlbar.setMaximumHeight(30)
-
+        
+        self.homebtn = QPushButton("Home")
+        self.homebtn.setMinimumHeight(30)
         self.gobtn = QPushButton("Vai")
         self.gobtn.setMinimumHeight(30)
         self.backbtn = QPushButton("<")
@@ -25,12 +27,15 @@ class YAWB(QMainWindow):
         self.forwbtn = QPushButton(">")
         self.forwbtn.setMinimumHeight(30)
 
+        self.horizontal.addWidget(self.homebtn)
         self.horizontal.addWidget(self.urlbar)
         self.horizontal.addWidget(self.gobtn)
         self.horizontal.addWidget(self.backbtn)
         self.horizontal.addWidget(self.forwbtn)
 
         self.browser = QWebEngineView()
+
+        self.homebtn.clicked.connect(lambda:self.navigate("https://www.google.com"))
 
         self.gobtn.clicked.connect(lambda:self.navigate(self.urlbar.toPlainText()))
         self.backbtn.clicked.connect(self.browser.back)
