@@ -36,6 +36,7 @@ class YAWB(QMainWindow):
         self.browser = QWebEngineView()
 
         self.homebtn.clicked.connect(lambda:self.navigate("https://www.google.com"))
+        self.homebtn.clicked.connect(lambda:self.urlbar.setText("https://www.google.com"))
 
         self.gobtn.clicked.connect(lambda:self.navigate(self.urlbar.toPlainText()))
         self.backbtn.clicked.connect(self.browser.back)
